@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Accounts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- {{data | json}} -->
+  <ion-card *ngIf="data">
+    <ion-card-header>
+      <ion-card-subtitle>My Accounts</ion-card-subtitle>
+      <ion-card-title>{{ data.name }} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let i of data.accounts" (click)="getAccount(i)" detail>
+
+          <ion-label>{{ i }}</ion-label>
+
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" (click)="addAccount()">Add Account</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>
